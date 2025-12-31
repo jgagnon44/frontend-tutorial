@@ -96,7 +96,7 @@ class App extends Component {
     // Generate an error
     // this.myCodeIsMorePerfect();
     // this.myCodeIsEvenBetter();
-    this.thisIsBogus();
+    this.yibbityBibbity();
 
     const order = {
       email: this.email,

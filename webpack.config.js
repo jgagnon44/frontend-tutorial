@@ -8,19 +8,23 @@ module.exports = {
     filename: "main.js",
     path: path.resolve(__dirname, "build"),
   },
-    devtool: "source-map",
+  devtool: "source-map",
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
     }),
     sentryWebpackPlugin({
-      org: "viv-ip",
+      org: "joseph-gagnon",
       project: "frontend-tutorial",
 
       // Auth tokens can be obtained by creating an internal integration
       // at https://<organization_id>.sentry.io/settings/developer-settings/
       // and need "Release: Admin" and "Organization: Read & Write" permissions
       authToken: process.env.SENTRY_AUTH_TOKEN,
+
+      sourcemaps: {
+        filesToDeleteAfterUpload: ["./**/*.map", ".*/**/public/**/*.map", "./dist/**/client/**/*.map"]
+      },
 
       // Enable automatically creating releases and associating commits
       release: {
